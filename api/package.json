@@ -1,0 +1,26 @@
+{
+  "name": "tech-test-api",
+  "scripts": {
+    "build": "nest build",
+    "start": "nest start",
+    "start:dev": "nest start --watch"
+  },
+  "dependencies": {
+    "@apollo/server": "5.3.0",
+    "@as-integrations/express5": "^1.1.2",
+    "@nestjs/apollo": "13.2.3",
+    "@nestjs/common": "11.1.12",
+    "@nestjs/core": "11.1.12",
+    "@nestjs/graphql": "13.2.3",
+    "@nestjs/platform-express": "11.1.12",
+    "graphql": "16.12.0",
+    "lowdb": "7.0.1",
+    "reflect-metadata": "0.1.14",
+    "rxjs": "7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "11.0.16",
+    "@types/node": "22.13.14",
+    "typescript": "5.9.3"
+  }
+}

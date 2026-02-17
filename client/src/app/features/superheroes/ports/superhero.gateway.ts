@@ -1,0 +1,7 @@
+import { Observable } from 'rxjs'
+import { Superhero } from '../models/superhero.model'
+
+export abstract class SuperheroGateway {
+  abstract getSuperheroes$(): Observable<Superhero[]>
+  abstract updateSuperhero$(id: string, input: { name?: string; power?: string }): Observable<Superhero | null>
+}

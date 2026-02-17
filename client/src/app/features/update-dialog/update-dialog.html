@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Modifier le super héro</h2>
+<mat-dialog-content>
+  <p>Voulez vous modifier le super héro ?</p>
+  <form class="dialog-update-superhero-form" [formGroup]="form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nom :</mat-label>
+      <input matInput placeholder="Ex. Batman" formControlName="name" value="form.get('name')?.value">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Pouvoir :</mat-label>
+      <input matInput placeholder="Ex. Intelligence" formControlName="power" value="form.get('power')?.value">
+    </mat-form-field>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-update-superhero-buttons">
+  <button matButton mat-dialog-close>Non</button>
+  <button matButton [mat-dialog-close]="form.value" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

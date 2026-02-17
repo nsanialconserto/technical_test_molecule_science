@@ -1,0 +1,22 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Superhero {
+  id: ID!
+  name: String!
+  power: String!
+}
+
+type Query {
+  superheroes: [Superhero!]!
+}
+
+type Mutation {
+  updateSuperhero(id: String!, input: UpdateSuperheroInput!): Superhero
+}
+
+input UpdateSuperheroInput {
+  name: String
+  power: String
+}

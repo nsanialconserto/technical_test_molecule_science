@@ -1,0 +1,13 @@
+{
+  "name": "tech-test",
+  "private": true,
+  "scripts": {
+    "install:all": "pnpm install && cd api && pnpm install && cd ../client && pnpm install",
+    "db:seed": "node api/scripts/seed-db.js",
+    "api": "cd api && pnpm start:dev",
+    "client": "cd client && pnpm start",
+    "build:api": "cd api && pnpm build",
+    "build:client": "cd client && pnpm build",
+    "build": "pnpm build:api && pnpm build:client"
+  }
+}
