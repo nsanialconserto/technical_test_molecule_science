@@ -1,0 +1,19 @@
+.update-superhero-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.update-superhero-form {
+    display: flex;
+    gap: 2rem;
+}
+
+.update-superhero-form mat-form-field {
+  flex: 1;
+}
+
+.update-superhero-buttons {
+
+}

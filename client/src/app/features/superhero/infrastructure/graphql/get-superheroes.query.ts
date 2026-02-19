@@ -1,7 +1,7 @@
 import { inject, Injectable } from "@angular/core";
 import * as Apollo from "apollo-angular";
 import { gql } from "apollo-angular";
-import { Superhero } from "../models/superhero.model";
+import { Superhero } from "../../domain/models/superhero.model";
 
 export type GetSuperheroesQuery = {
   superheroes: Superhero[];

@@ -1,0 +1,32 @@
+<div class="page">
+  <div class="card">
+    <h1 class="heading">Superhéros</h1>
+    @if (store.isLoading()) {
+      <div class="loading">
+        <mat-spinner diameter="32" />
+        <span>Chargement…</span>
+      </div>
+    }
+    @if (store.error()) {
+      <p class="error">{{ store.error() }}</p>
+    }
+    @if (!store.isLoading() && !store.error()) {
+      <table mat-table [dataSource]="store.list()" class="hero-table">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nom</th>
+          <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="power">
+          <th mat-header-cell *matHeaderCellDef>Pouvoir</th>
+          <td mat-cell *matCellDef="let row">{{ row.power }}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="redirectSuperheorDetails(row.id)"></tr>
+      </table>
+    }
+  </div>
+</div>

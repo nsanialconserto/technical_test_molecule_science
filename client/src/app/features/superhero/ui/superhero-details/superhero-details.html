@@ -1,0 +1,38 @@
+<div class="page">
+    <div class="card update-superhero-card">
+        @if (store.isLoading()) {
+            <div class="loading">
+                <mat-spinner diameter="32" />
+                <span>Chargement…</span>
+            </div>
+        }
+        @if (store.error()) {
+            <p class="error">{{ store.error() }}</p>
+        }
+        @if (!store.isLoading() && !store.error()) {
+            <div>
+                <h2>Modifier le super héro</h2>
+                <p>Voulez vous modifier le super héro ?</p>
+            </div>
+            <div>
+                <form class="update-superhero-form" [formGroup]="form">
+                    <mat-form-field>
+                        <mat-label>Nom :</mat-label>
+                        <input matInput placeholder="Ex. Batman" formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Pouvoir :</mat-label>
+                        <input matInput placeholder="Ex. Intelligence" formControlName="power">
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="update-superhero-buttons">
+                <button matButton>Non</button>
+                <button matButton cdkFocusInitial [disabled]="form.invalid" (click)="updateSuperhero()">Ok</button>
+            </div>
+        }
+    </div>
+</div>
+
+
+

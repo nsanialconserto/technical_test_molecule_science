@@ -12,6 +12,15 @@ export class SuperheroResolver {
     return this.superheroService.getAll();
   }
 
+  @Query(() => Superhero, { name: "superhero" })
+  async superhero(
+    @Args("id") id: string
+  ): Promise<Superhero | null> {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const result = this.superheroService.getById(id);
+    return result ?? null;
+  }
+
   @Mutation(() => Superhero, { nullable: true })
   async updateSuperhero(
     @Args("id") id: string,

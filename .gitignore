@@ -3,3 +3,4 @@ api/node_modules/
 api/dist/
 client/node_modules/
 client/.angular/
+client/dist/

@@ -10,6 +10,7 @@ type Superhero {
 
 type Query {
   superheroes: [Superhero!]!
+  superhero(id: String!): Superhero!
 }
 
 type Mutation {

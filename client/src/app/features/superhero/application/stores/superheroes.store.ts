@@ -9,8 +9,8 @@ import {
 } from "@ngrx/signals";
 import { switchMap, tap, pipe } from "rxjs";
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { Superhero } from "./models/superhero.model";
-import { SuperheroGateway } from "./ports/superhero.gateway";
+import { Superhero } from "../../domain/models/superhero.model";
+import { SuperheroGateway } from "../../domain/ports/superhero.gateway";
 
 const initialState = {
   list: [] as Superhero[],
@@ -23,7 +23,7 @@ export const SuperheroesStore = signalStore(
   withProps(() => {
     const gateway = inject(SuperheroGateway);
     return {
-      load$: () => gateway.getSuperheroes$(),
+      loadSuperheroes$: () => gateway.getSuperheroes$(),
       updateSuperhero$: (id: string, input: { name?: string; power?: string }) => gateway.updateSuperhero$(id, input)
     };
   }),
@@ -31,38 +31,25 @@ export const SuperheroesStore = signalStore(
     const setList = (list: Superhero[]) => patchState(store, { list })
     const setIsLoading = (isLoading: boolean) => patchState(store, { isLoading })
     const setError = (error: string | null) => patchState(store, { error })
-    const load = rxMethod<void>(
+    const loadSuperhero = rxMethod<void>(
       pipe(
         tap(() => patchState(store, { isLoading: true, error: null })),
-        switchMap(() => store.load$().pipe(
+        switchMap(() => store.loadSuperheroes$().pipe(
           tap({
             next: (value) => patchState(store, { list: value, isLoading: false }),
-            error: (error) => patchState(store, { error: error ?? 'Error in superHero load', isLoading: false })
+            error: (error) => patchState(store, { error: error ?? 'Error in superHeroes load', isLoading: false })
           })
         )),
       )
     );
-    const updateHero = rxMethod<{
-      id: string,
-      input: { name?: string; power?: string }
-    }>(
-      pipe(
-        tap(() => patchState(store, { isLoading: true, error: null })),
-        switchMap(({ id, input }) => store.updateSuperhero$(id, input).pipe(
-          tap({
-            next: () => load(),
-            error: (error) => patchState(store, { error: error ?? 'Error in superHero update', isLoading: false })
-          })
-        )),
-      )
-    )
+
     return {
-      setList, setIsLoading, setError, load, updateHero
+      setList, setIsLoading, setError, loadSuperhero
     }
   }),
   withHooks({
     onInit(store) {
-      store.load();
+      store.loadSuperhero();
     },
   }),
 );

@@ -1,6 +1,6 @@
 // TODO étape 3: créer la mutation UpdateSuperhero (id + input { name?, power? })
 // Ex: mutation UpdateSuperhero($id: String!, $input: UpdateSuperheroInput!) { updateSuperhero(id: $id, input: $input) { id name power } }
-import { Superhero } from "../models/superhero.model";
+import { Superhero } from "../../domain/models/superhero.model";
 import { gql } from "apollo-angular";
 import * as Apollo from "apollo-angular";
 import { Injectable, inject } from "@angular/core";
