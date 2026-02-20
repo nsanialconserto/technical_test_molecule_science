@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Créer un nouveau super héro</h2>
+<mat-dialog-content>
+  <form class="dialog-update-superhero-form" [formGroup]="createSuperheroForm">
+    <mat-form-field class="form-superhero-creation-field form-field-name">
+      <mat-label>Nom :</mat-label>
+      <input matInput placeholder="Ex. Batman" formControlName="name">
+    </mat-form-field>
+    <mat-form-field class="form-superhero-creation-field form-field-power">
+      <mat-label>Pouvoir :</mat-label>
+      <input matInput placeholder="Ex. Intelligence" formControlName="power">
+    </mat-form-field>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-creation-superhero-buttons">
+    <div class="create-superhero-buttons">
+        <button matButton="elevated" mat-dialog-close>
+            <mat-icon aria-hidden="false" aria-label="arrow back icon" fontIcon="arrow_back" class="arrow-back-icon"></mat-icon>
+            <span>Retour</span>
+        </button>
+        <button matButton="elevated" [mat-dialog-close]="createSuperheroForm.value" class="create-button" cdkFocusInitial>
+            <mat-icon aria-hidden="false" aria-label="check icon" fontIcon="check" class="check-icon"></mat-icon>
+            <span>Créer</span>
+        </button>
+    </div>
+</mat-dialog-actions>

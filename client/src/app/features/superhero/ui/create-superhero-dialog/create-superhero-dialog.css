@@ -1,0 +1,31 @@
+.mat-mdc-dialog-title {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+.dialog-update-superhero-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dialog-creation-superhero-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.create-superhero-buttons>button {
+    width: 120px;
+}
+
+.create-superhero-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+
+.mat-mdc-button-base.create-button {
+    background-color: var(--accent);
+}

@@ -1,5 +1,5 @@
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
-import { Superhero, UpdateSuperheroInput } from "./superhero.entity";
+import { Superhero, CreateSuperheroInput, UpdateSuperheroInput } from "./superhero.entity";
 import { SuperheroService } from "./superhero.service";
 
 @Resolver(() => Superhero)
@@ -8,7 +8,7 @@ export class SuperheroResolver {
 
   @Query(() => [Superhero], { name: "superheroes" })
   async superheroes(): Promise<Superhero[]> {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 500));
     return this.superheroService.getAll();
   }
 
@@ -16,9 +16,17 @@ export class SuperheroResolver {
   async superhero(
     @Args("id") id: string
   ): Promise<Superhero | null> {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 500));
     const result = this.superheroService.getById(id);
     return result ?? null;
+  }
+
+  @Mutation(() => Superhero, { name: "createSuperhero" })
+  async createSuperhero(
+    @Args("input") input: CreateSuperheroInput
+  ): Promise<Superhero> {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    return this.superheroService.create(input.name, input.power);
   }
 
   @Mutation(() => Superhero, { nullable: true })

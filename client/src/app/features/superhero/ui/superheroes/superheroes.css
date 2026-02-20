@@ -1,10 +1,39 @@
+.page-header {
+    display: flex;
+    justify-content: space-between;
+}
+.add-button {
+    background-color: var(--accent);
+    margin-right: 2%;
+}
+
+.tool-tip-update {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.info-icon {
+    margin: 0 0.5rem;
+    color: var(--accent);
+}
+
 .hero-table {
   width: 100%;
 }
+
 .hero-table th {
   font-weight: 600;
   color: var(--text-secondary);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.mat-mdc-row {
+    cursor: pointer;
+}
+
+.mat-mdc-row:hover {
+    background-color: #f5f5f9;
 }

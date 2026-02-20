@@ -10,10 +10,21 @@
     gap: 2rem;
 }
 
-.update-superhero-form mat-form-field {
-  flex: 1;
+.update-superhero-form > .mat-mdc-form-field {
+    width: 60%;
+}
+
+.update-superhero-buttons > button {
+    width: 120px;
 }
 
 .update-superhero-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+}
 
+.mat-mdc-button-base.update-button {
+    background-color: var(--accent);
 }

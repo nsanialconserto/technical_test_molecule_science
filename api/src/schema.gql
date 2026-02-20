@@ -14,7 +14,13 @@ type Query {
 }
 
 type Mutation {
+  createSuperhero(input: CreateSuperheroInput!): Superhero!
   updateSuperhero(id: String!, input: UpdateSuperheroInput!): Superhero
+}
+
+input CreateSuperheroInput {
+  name: String!
+  power: String!
 }
 
 input UpdateSuperheroInput {

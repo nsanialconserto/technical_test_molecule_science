@@ -13,6 +13,15 @@ export class Superhero {
 }
 
 @InputType()
+export class CreateSuperheroInput {
+    @Field()
+    name: string
+    
+    @Field()
+    power: string
+}
+
+@InputType()
 export class UpdateSuperheroInput {
   @Field({ nullable: true })
   name?: string

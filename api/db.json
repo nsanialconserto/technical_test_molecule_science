@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "SpiderMan",
-      "power": "Intelligence"
+      "power": "Web"
     },
     {
       "id": "2",
@@ -12,7 +12,7 @@
     },
     {
       "id": "3",
-      "name": "Wonder Woman 2",
+      "name": "Wonder Woman",
       "power": "Strength"
     }
   ]

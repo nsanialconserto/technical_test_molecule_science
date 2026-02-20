@@ -27,8 +27,14 @@
                 </form>
             </div>
             <div class="update-superhero-buttons">
-                <button matButton>Non</button>
-                <button matButton cdkFocusInitial [disabled]="form.invalid" (click)="updateSuperhero()">Ok</button>
+                <button matButton="elevated" class="back-button" (click)="redirectSuperheroList()">
+                    <mat-icon aria-hidden="false" aria-label="arrow back icon" fontIcon="arrow_back" class="arrow-back-icon"></mat-icon>
+                    <span>Retour</span>
+                </button>
+                <button matButton="elevated" cdkFocusInitial [disabled]="form.invalid" class="update-button" (click)="updateSuperhero()">
+                    <mat-icon aria-hidden="false" aria-label="check icon" fontIcon="check" class="check-icon"></mat-icon>
+                    <span>Modifier</span>
+                </button>
             </div>
         }
     </div>
